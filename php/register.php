@@ -8,9 +8,13 @@ $name = mysqli_real_escape_string($conn, $_POST['name']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
 
+//require "../assets/predis/vendor/autoload.php";
+
+//$redis = new Predis\Client();
+
 if(strlen($name)>4){
     if(strlen($email)>4){
-        $query = " SELECT * FROM users WHERE email = ? "; // SQL with parameters
+        $query = " SELECT * FROM users WHERE email = ? "; 
         $stmt = $conn->prepare($query); 
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -20,9 +24,9 @@ if(strlen($name)>4){
                 echo "exist";
             }
             else{
-        if(strlen($password)>5){
+        if(strlen($password)>4){
             if(!empty($name) && !empty($email) && !empty($password) ) 
-{   
+ {   // $redis->set('name',$name);
      $stmt = $conn->prepare("INSERT INTO users(name, email, password) VALUES (?, ?, ?)");
                                  $stmt->bind_param("sss", $name, $email, $password);
                                 $stmt->execute();

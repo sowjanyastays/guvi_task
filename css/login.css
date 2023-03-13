@@ -20,8 +20,9 @@ padding-top: 20px;
 }
 body{
     background-color: lightblue;
+    background: url('assets/pictures/login-bg.jpg');
 }
 .button_edit{
- padding-left: 150px;  
+ padding-left: 135px;  
 } 
 

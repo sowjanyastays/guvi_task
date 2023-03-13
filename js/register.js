@@ -27,7 +27,6 @@ submit_but.onclick = () =>
                 alert("Please enter a valid name");
             }
             else if (data == "exist"){
-                console.log("in exist");
                 alert("Email already exists");
             }
             else{

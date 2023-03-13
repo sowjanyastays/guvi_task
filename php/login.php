@@ -8,14 +8,11 @@ if(!$conn)
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-require "../assets/predis/vendor/autoload.php"
-
-$redis = new Predis\Client();
 
 
 
 if(!empty($email) && !empty($password)){
-        if(strlen($password)>5){
+        if(strlen($password)>4){
                 if(strlen($email)>4) 
             {
             

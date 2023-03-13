@@ -4,13 +4,14 @@ form.onsubmit = (e) =>
     e.preventDefault();           
 }	
 const submit_but = form.querySelector("button");
+
 let local_email = localStorage.getItem('email');
 
- if(local_email!=null){
-  document.write(local_email);}
- else{
-  document.write("hi user"); 
-  }
+//  if(local_email!=null){
+//   document.write("Welcome"+local_email);}
+//  else{
+//   document.write("hi"); 
+//   }
 
 submit_but.onclick = () =>
 {   
@@ -22,7 +23,7 @@ submit_but.onclick = () =>
             let data = xhr.response;
             if(data == "success")
             {
-                location.href = "assets/mongoconnect/profile_show.php";
+                alert("Details updated");
             }
             else if(data=="something is wrong"){
                 alert("The coulumns should not be left blank");
